@@ -1,26 +1,25 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+import AppButton from "./app/components/AppButton/AppButton";
+import Card from "./app/components/Card/Card";
 
 export default function App() {
-  let x = 1;
-  console.log("app executed");
   return (
     <View
       style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        backgroundColor: "#f8f4f4",
+        padding: 20,
+        paddingTop: 100,
       }}
     >
-      <View
-        style={{
-          backgroundColor: "dodgerblue",
-          width: 100,
-          height: 100,
-        }}
-      ></View>
+      <Card
+        title="Red jacket for sale!"
+        subTitle="$100"
+        image={require("./app/assets/jacket.jpg")}
+      />
     </View>
   );
 }
