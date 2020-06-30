@@ -1,11 +1,11 @@
 import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 
-import Screen from "../components/Screen/Screen";
-import ListItem from "../components/ListItem/ListItem";
-import Icon from "../components/Icon/Icon";
+import Screen from "../components/Screen";
+import ListItem from "../components/ListItem";
+import ListItemSeparatorComponent from "../components/ListItemSeparator";
 import colors from "../config/colors";
-import ListItemSeparator from "../components/ListItemSeparator/ListItemSeparator";
+import Icon from "../components/Icon";
 
 const menuItems = [
   {
@@ -24,21 +24,21 @@ const menuItems = [
   },
 ];
 
-export default function MyAccountScreen() {
+function AccountScreen(props) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          image={require("../assets/mosh.jpg")}
           title="Mosh Hamedani"
           subTitle="programmingwithmosh@gmail.com"
+          image={require("../assets/mosh.jpg")}
         />
       </View>
       <View style={styles.container}>
         <FlatList
           data={menuItems}
           keyExtractor={(menuItem) => menuItem.title}
-          ItemSeparatorComponent={ListItemSeparator}
+          ItemSeparatorComponent={ListItemSeparatorComponent}
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
@@ -59,11 +59,14 @@ export default function MyAccountScreen() {
     </Screen>
   );
 }
+
 const styles = StyleSheet.create({
-  container: {
-    marginVertical: 20,
-  },
   screen: {
     backgroundColor: colors.light,
   },
+  container: {
+    marginVertical: 20,
+  },
 });
+
+export default AccountScreen;
