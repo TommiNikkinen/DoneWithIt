@@ -1,33 +1,35 @@
 import React from "react";
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
+
 import colors from "../../config/colors";
 
-export default function AppButton({ title, onPress, color }) {
+function AppButton({ title, onPress, color = "primary" }) {
   return (
     <TouchableOpacity
-      style={[styles.appButton, { backgroundColor: colors[color] }]}
+      style={[styles.button, { backgroundColor: colors[color] }]}
       onPress={onPress}
-      color={color}
     >
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  appButton: {
+  button: {
     backgroundColor: colors.primary,
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
     padding: 15,
     width: "100%",
-    margin: 10,
+    marginVertical: 10,
   },
-  title: {
+  text: {
     color: colors.white,
     fontSize: 18,
     textTransform: "uppercase",
     fontWeight: "bold",
   },
 });
+
+export default AppButton;
